@@ -41,10 +41,10 @@ module.exports = MarkdownPreviewAutoOpen =
       workspaceView = atom.views.getView(atom.workspace)
       atom.commands.dispatch workspaceView, 'markdown-preview:toggle'
 
-    if atom.config.get('markdown-preview-opener.closePreviewWhenClosingFile')
+    if atom.config.get('markdown-preview-auto-open.closePreviewWhenClosingFile')
       if event.item.onDidDestroy
         event.item.onDidDestroy ->
           for pane in atom.workspace.getPanes()
-            for item in pane.items when item.getURI() is "markdown-preview://#{event.uri}"
+            for item in pane.items when item.getURI() in [previewUrl, "markdown-preview://#{event.uri}"]
               pane.destroyItem(item)
               break
