@@ -1,9 +1,9 @@
 {
-  "name": "markdown-preview-opener",
-  "main": "./lib/markdown-preview-opener",
-  "version": "0.1.1",
+  "name": "markdown-preview-auto-open",
+  "main": "./lib/markdown-preview-auto-open",
+  "version": "0.1.0",
   "description": "Opens the markdown-preview pane automatically when a markdown file is opened",
-  "repository": "https://github.com/plafue/markdown-preview-opener",
+  "repository": "https://github.com/fdev/markdown-preview-auto-open",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"

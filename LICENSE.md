@@ -1,4 +1,5 @@
-Copyright (c) 2015 Pedro Lafuente
+Copyright (c) 2015 Pedro Lafuente (markdown-preview-opener)
+Copyright (c) 2017 Folkert de Vries (markdown-preview-auto-open)
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

@@ -1,10 +1,10 @@
-describe "MarkdownPreviewOpener", ->
+describe "MarkdownPreviewAutoOpen", ->
   [workspaceElement, markdownPreviewactivAtionPromise, activationPromise] = []
 
   beforeEach ->
     workspaceElement = atom.views.getView(atom.workspace)
     markdownPreviewactivAtionPromise = atom.packages.activatePackage('markdown-preview')
-    activationPromise = atom.packages.activatePackage('markdown-preview-opener')
+    activationPromise = atom.packages.activatePackage('markdown-preview-auto-open')
 
   describe "when a markdown file is opened a 'markdown-preview:toggle' event ", ->
     it "is triggered if the file has the right extension", ->
