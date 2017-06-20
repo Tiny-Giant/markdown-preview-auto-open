@@ -48,3 +48,10 @@ module.exports = MarkdownPreviewAutoOpen =
             for item in pane.items when item.getURI() in [previewUrl, "markdown-preview://#{event.uri}"]
               pane.destroyItem(item)
               break
+
+    # Focus original pane after opening preview
+    setTimeout =>
+      pane = atom.workspace.paneForURI(event.uri)
+      if pane
+        pane.activate()
+    , 0

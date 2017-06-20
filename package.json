@@ -1,7 +1,7 @@
 {
   "name": "markdown-preview-auto-open",
   "main": "./lib/markdown-preview-auto-open",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Opens the markdown-preview pane automatically when a markdown file is opened",
   "repository": "https://github.com/fdev/markdown-preview-auto-open",
   "license": "MIT",

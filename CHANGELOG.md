@@ -1,3 +1,6 @@
+## 0.1.3
+* Fix: Don't focus preview after opening
+
 ## 0.1.2
 * Fix: Changed close preference setting name
 
