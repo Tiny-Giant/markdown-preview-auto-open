@@ -38,7 +38,7 @@ module.exports = MarkdownPreviewAutoOpen =
     previewPane = atom.workspace.paneForURI(previewUrl)
 
     if not previewPane
-      workspaceView = atom.views.getView(atom.workspace)
+      workspaceView = event.item.component.element
       atom.commands.dispatch workspaceView, 'markdown-preview:toggle'
 
     if atom.config.get('markdown-preview-auto-open.closePreviewWhenClosingFile')
