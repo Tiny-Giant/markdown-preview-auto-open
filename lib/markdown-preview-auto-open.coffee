@@ -16,7 +16,6 @@ module.exports = MarkdownPreviewAutoOpen =
       if not (atom.packages.getLoadedPackage 'markdown-preview')
         console.log 'markdown-preview-auto-open: markdown-preview package not found'
         return
-
     atom.workspace.onDidOpen(@openPreview)
     atom.workspace.onDidStopChangingActivePaneItem(@switchPreview)
 
@@ -36,22 +35,21 @@ module.exports = MarkdownPreviewAutoOpen =
 
     previewUrl = "markdown-preview://editor/#{event.item.id}"
     previewPane = atom.workspace.paneForURI(previewUrl)
-
+    previewItem = previewPane && previewPane.itemForURI(previewUrl)
     if not previewPane
       workspaceView = event.item.component.element
       atom.commands.dispatch workspaceView, 'markdown-preview:toggle'
+      process.nextTick =>
+        previewPane = atom.workspace.paneForURI(previewUrl)
+        previewItem = previewPane && previewPane.itemForURI(previewUrl)
 
     if atom.config.get('markdown-preview-auto-open.closePreviewWhenClosingFile')
       if event.item.onDidDestroy
         event.item.onDidDestroy ->
-          for pane in atom.workspace.getPanes()
-            for item in pane.items when item.getURI() in [previewUrl, "markdown-preview://#{event.uri}"]
-              pane.destroyItem(item)
-              break
+          previewPane.destroyItem(previewItem)
 
     # Focus original pane after opening preview
-    setTimeout =>
+    process.nextTick =>
       pane = atom.workspace.paneForURI(event.uri)
       if pane
         pane.activate()
-    , 0
